@@ -1,0 +1,131 @@
+name: "🐞 Bug Report"
+description: "Сообщить об ошибке или некорректной работе VRS.Details"
+title: "[BUG] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за сообщение об ошибке.
+
+        Перед отправкой проверьте, что аналогичная проблема ещё не была зарегистрирована.
+
+        Не публикуйте здесь конфиденциальные данные, внутренние сетевые пути, логины, пароли, cookies, служебные документы или другую закрытую информацию.
+
+  - type: input
+    id: version
+    attributes:
+      label: "Версия VRS.Details"
+      description: "Укажите версию программы. Она отображается в окне «О программе»."
+      placeholder: "Например: 0.11.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: "Раздел программы"
+      description: "В каком разделе возникла проблема?"
+      options:
+        - Главное окно / состав установки
+        - Формирование Excel
+        - Excel для KDXF Studio
+        - Размещение горизонтальных стяжек
+        - Расчёт крыши
+        - Создание чертежа в КОМПАС-3D
+        - База данных
+        - Обновление программы
+        - Интерфейс
+        - Другое
+    validations:
+      required: true
+
+  - type: input
+    id: vrs-size
+    attributes:
+      label: "Типоразмер VRS"
+      description: "Если ошибка зависит от типоразмера, укажите его."
+      placeholder: "Например: 019"
+    validations:
+      required: false
+
+  - type: input
+    id: execution
+    attributes:
+      label: "Исполнение"
+      description: "Если применимо, укажите исполнение установки."
+      placeholder: "Например: 04"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Описание проблемы"
+      description: "Кратко и точно опишите, что работает неправильно."
+      placeholder: |
+        Например:
+        После нажатия «Создать чертёж крыши» появляется ошибка...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Как воспроизвести"
+      description: "Перечислите последовательность действий, после которой возникает проблема."
+      placeholder: |
+        1. Выбрать VRS 019
+        2. Открыть «Расчёт крыши»
+        3. Ввести длину 5600 мм
+        4. Нажать «Рассчитать»
+        5. Нажать «Создать чертёж крыши»
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Ожидаемый результат"
+      description: "Что должно было произойти?"
+      placeholder: "Например: должен быть создан чертёж крыши."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Фактический результат"
+      description: "Что произошло на самом деле?"
+      placeholder: "Например: программа показала сообщение об ошибке и чертёж не был создан."
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: "Текст ошибки или лог"
+      description: "Если программа показывает сообщение об ошибке — вставьте его сюда."
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Скриншоты и дополнительные материалы"
+      description: "Перетащите сюда скриншоты или другие безопасные материалы, которые помогут воспроизвести проблему."
+      placeholder: "Можно перетащить изображение прямо в это поле."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Проверка перед отправкой"
+      options:
+        - label: "Я проверил существующие Issues и не нашёл такой же проблемы."
+          required: true
+        - label: "Я не публикую конфиденциальные данные или внутреннюю служебную информацию."
+          required: true
